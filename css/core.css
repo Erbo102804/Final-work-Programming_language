@@ -11,7 +11,8 @@
 
 body {
     font-family: "Britannic Bold", sans-serif;
-    background: #c2d0d0;
+    background: #000814;
+    overflow-x: hidden;
 }
 
 .btn {
@@ -19,19 +20,24 @@ body {
     height: 50px;
     font-size: 20px;
     cursor: pointer;
-    border: 1px solid var(--orange);
-    background: black;
-    color: var(--orange);
+    border: 2px solid #0066ff;
+    background: linear-gradient(135deg, #0066ff, #00aaff);
+    color: white;
     border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
 .btn:hover {
-    background: #414349;
+    background: linear-gradient(135deg, #0055dd, #0088dd);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+    transform: translateY(-2px);
 }
 
 .btn:active {
-    background: #56585D;
-    border: 2px solid var(--orange);
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.4);
 }
 
 a {
@@ -77,22 +83,31 @@ h4 {
 }
 
 strong {
-    color: #F79300;
+    color: #00aaff;
+    text-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
 }
 
 label {
     font-size: 24px;
-    color: var(--orange);
+    color: #00aaff;
 }
 
 input {
     width: 350px;
     height: 50px;
     font-size: 20px;
-    padding-left: 5px;
-    color: var(--orange);
-    background: black;
-    border: 2px solid var(--orange);
+    padding-left: 15px;
+    color: white;
+    background: rgba(0, 10, 30, 0.8);
+    border: 2px solid #0066ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
 }
 
 .checker {
@@ -104,21 +119,26 @@ input {
     display: block;
     width: 100px;
     height: 100px;
-    background: var(--orange);
-    color: black;
-    font-size: 20px;
+    background: linear-gradient(135deg, #0066ff, #00aaff);
+    color: white;
+    font-size: 18px;
     text-transform: uppercase;
     border-radius: 50%;
     font-weight: 800;
     z-index: 1;
+    border: 3px solid #0066ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
 }
 
 .btn-slide:hover {
-    background: #b68733 !important;
-    cursor: pointer;
-    color: white;
+    background: linear-gradient(135deg, #0055dd, #0088dd);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.6);
 }
 
 :root {
-    --orange: orange
+    --starlink-blue: #0066ff;
+    --starlink-light: #00aaff;
 }
