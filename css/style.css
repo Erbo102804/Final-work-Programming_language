@@ -145,7 +145,7 @@ body::before {
 .menu {
     display: flex;
     justify-content: space-around;
-    width: 600px;
+    width: 700px;
 }
 
 .menu_link a {

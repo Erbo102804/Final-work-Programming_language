@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация - Starlink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<!-- Background Video -->
+<video class="background-video" autoplay muted loop playsinline>
+    <source src="https://cdn.pixabay.com/video/2022/03/08/110296-686617903_large.mp4" type="video/mp4">
+</video>
+
+<div class="wrapper">
+    <div class="header">
+        <div class="container">
+            <div class="inner_header">
+                <a href="../index.html">
+                    <div class="logotype">
+                        <h2>STARLINK</h2>
+                    </div>
+                </a>
+                <ul class="menu">
+                    <li class="menu_link">
+                        <a href="../pages/home_works.html">Тарифы</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="../pages/lessons.html">О нас</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="https://github.com/Erbo102804" target="_blank">Portfolio</a>
+                    </li>
+                </ul>
+                <button class="btn" id="btn-get">Подключить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth_section">
+        <div class="container">
+            <div class="auth_container">
+                <div class="auth_card">
+                    <h2>Вход в систему</h2>
+                    <p class="auth_subtitle">Авторизация клиента Starlink</p>
+
+                    <form id="authForm" class="auth_form">
+                        <div class="form_group">
+                            <label for="login">Логин</label>
+                            <input type="text" id="login" placeholder="Введите логин" required>
+                        </div>
+
+                        <div class="form_group">
+                            <label for="password">Пароль</label>
+                            <input type="password" id="password" placeholder="Введите пароль" required>
+                        </div>
+
+                        <button type="submit" class="btn auth_btn">Войти</button>
+
+                        <div id="authMessage" class="auth_message"></div>
+                    </form>
+
+                    <div class="test_accounts">
+                        <p>Тестовые аккаунты:</p>
+                        <ul>
+                            <li>admin / admin123</li>
+                            <li>user1 / pass1</li>
+                            <li>elon / tesla2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <a href="#" target="_blank">
+                <div class="inner_footer">
+                    <h2>Starlink © 2024 - Интернет из космоса</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <form action="#">
+                <div class="modal_close">&times;</div>
+                <div class="modal_title">Подключите Starlink сегодня!</div>
+                <input required placeholder="Ваше имя" name="fullname" type="text" class="modal_input">
+                <input required placeholder="Ваш номер телефона" name="phone_number" type="phone" class="modal_input">
+                <button class="btn btn_dark btn_min">Оставить заявку</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../js/auth.js"></script>
+<script src="../js/modal.js"></script>
+</html>
