@@ -46,7 +46,7 @@ body {
         inset 0 -2px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    animation: buttonPulse 3s ease-in-out infinite;
+    will-change: transform, box-shadow;
 }
 
 @keyframes buttonPulse {
@@ -93,7 +93,8 @@ body {
         transparent
     );
     transform: rotate(45deg);
-    animation: buttonShine 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.6s;
 }
 
 @keyframes buttonShine {
@@ -111,7 +112,10 @@ body {
         inset 0 2px 0 rgba(255, 255, 255, 0.6),
         inset 0 -2px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px) scale(1.05);
-    animation: none;
+}
+
+.btn:hover::after {
+    opacity: 1;
 }
 
 .btn:hover::before {

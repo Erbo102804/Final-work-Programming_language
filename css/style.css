@@ -44,6 +44,13 @@
     50% { opacity: 1; }
 }
 
+/* Performance optimization */
+.background-video,
+.video-overlay,
+body::after {
+    will-change: opacity, transform;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -96,27 +103,7 @@ h2, h3 {
     text-shadow:
         0 0 10px rgba(0, 170, 255, 1),
         0 0 20px rgba(0, 170, 255, 0.8),
-        0 0 30px rgba(0, 130, 255, 0.6),
-        0 0 40px rgba(0, 100, 255, 0.4),
-        0 0 70px rgba(0, 80, 255, 0.2);
-    animation: textGlow 3s ease-in-out infinite;
-}
-
-@keyframes textGlow {
-    0%, 100% {
-        text-shadow:
-            0 0 10px rgba(0, 170, 255, 1),
-            0 0 20px rgba(0, 170, 255, 0.8),
-            0 0 30px rgba(0, 130, 255, 0.6),
-            0 0 40px rgba(0, 100, 255, 0.4);
-    }
-    50% {
-        text-shadow:
-            0 0 15px rgba(0, 200, 255, 1),
-            0 0 30px rgba(0, 200, 255, 0.9),
-            0 0 45px rgba(0, 170, 255, 0.7),
-            0 0 60px rgba(0, 130, 255, 0.5);
-    }
+        0 0 30px rgba(0, 130, 255, 0.6);
 }
 
 h3 {
@@ -136,20 +123,6 @@ h3::after {
     box-shadow:
         0 0 15px rgba(0, 170, 255, 1),
         0 0 30px rgba(0, 200, 255, 0.6);
-    animation: underlineGlow 2s ease-in-out infinite;
-}
-
-@keyframes underlineGlow {
-    0%, 100% {
-        box-shadow:
-            0 0 15px rgba(0, 170, 255, 1),
-            0 0 30px rgba(0, 200, 255, 0.6);
-    }
-    50% {
-        box-shadow:
-            0 0 20px rgba(0, 200, 255, 1),
-            0 0 40px rgba(0, 255, 255, 0.8);
-    }
 }
 
 body::before {
@@ -179,8 +152,8 @@ body::before {
     background:
         linear-gradient(135deg, rgba(0, 15, 50, 0.85), rgba(0, 30, 70, 0.75)),
         rgba(5, 15, 40, 0.8);
-    backdrop-filter: blur(25px) saturate(200%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
     display: flex;
     align-items: center;
     width: 100%;
