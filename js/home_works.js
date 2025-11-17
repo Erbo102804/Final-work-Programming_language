@@ -37,31 +37,30 @@ iinButton.addEventListener('click', () => {
     }
 });
 
-// HOME WORK 1 (Part 2) - Moving Block
+// HOME WORK 1 (Part 2) - Moving Block (Circular Orbit)
 const parentBlock = document.querySelector('.parent_block');
 const childBlock = document.querySelector('.child_block');
 
-let positionX = 0;
-let positionY = 0;
+let angle = 0;
+const radius = 230; // Радиус орбиты (половина родительского блока минус размер спутника)
+const centerX = 230; // Центр орбиты по X
+const centerY = 230; // Центр орбиты по Y
+const speed = 0.02; // Скорость вращения
 
 const moveBlock = () => {
-    if (positionX < 440 && positionY === 0) {
-        positionX++;
-        childBlock.style.left = positionX + 'px';
-        requestAnimationFrame(moveBlock);
-    } else if (positionX >= 440 && positionY < 440) {
-        positionY++;
-        childBlock.style.top = positionY + 'px';
-        requestAnimationFrame(moveBlock);
-    } else if (positionY >= 440 && positionX > 0) {
-        positionX--;
-        childBlock.style.left = positionX + 'px';
-        requestAnimationFrame(moveBlock);
-    } else if (positionX === 0 && positionY > 0) {
-        positionY--;
-        childBlock.style.top = positionY + 'px';
-        requestAnimationFrame(moveBlock);
-    }
+    // Вычисляем позицию по кругу используя sin и cos
+    const positionX = centerX + radius * Math.cos(angle) - 20; // -20 это половина размера спутника (40px / 2)
+    const positionY = centerY + radius * Math.sin(angle) - 20;
+
+    // Применяем позицию
+    childBlock.style.left = positionX + 'px';
+    childBlock.style.top = positionY + 'px';
+
+    // Увеличиваем угол для следующего кадра
+    angle += speed;
+
+    // Продолжаем анимацию
+    requestAnimationFrame(moveBlock);
 };
 
 moveBlock();
