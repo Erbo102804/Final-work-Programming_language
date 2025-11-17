@@ -50,6 +50,43 @@ html {
 
 body {
     position: relative;
+    overflow-x: hidden;
+}
+
+/* АНИМИРОВАННЫЕ ГЕОМЕТРИЧЕСКИЕ ФИГУРЫ */
+
+body::after {
+    content: '';
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 170, 255, 0.05), transparent 70%);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    z-index: -1;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-50px, 100px) rotate(120deg); }
+    66% { transform: translate(50px, -50px) rotate(240deg); }
+}
+
+/* РАЗДЕЛИТЕЛИ СЕКЦИЙ */
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 170, 255, 0.5), transparent);
+    margin: 60px 0;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; box-shadow: 0 0 20px rgba(0, 170, 255, 0.3); }
+    50% { opacity: 1; box-shadow: 0 0 30px rgba(0, 170, 255, 0.6); }
 }
 
 /* ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ */
@@ -312,14 +349,47 @@ body::before {
     border-radius: 15px;
     padding: 30px;
     text-align: center;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 130, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature_card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 170, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s;
+    opacity: 0;
+}
+
+.feature_card:hover::before {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .feature_card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(0, 170, 255, 0.6);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 170, 255, 0.4);
+    transform: translateY(-15px) scale(1.03);
+    border-color: rgba(0, 170, 255, 0.8);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 50px rgba(0, 170, 255, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .feature_image {
@@ -329,30 +399,65 @@ body::before {
     border-radius: 10px;
     margin-bottom: 20px;
     border: 2px solid rgba(0, 170, 255, 0.3);
+    position: relative;
+}
+
+.feature_image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 100, 255, 0.3));
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.feature_card:hover .feature_image::after {
+    opacity: 1;
 }
 
 .feature_image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: brightness(0.9);
 }
 
 .feature_card:hover .feature_image img {
-    transform: scale(1.15);
+    transform: scale(1.2) rotate(2deg);
+    filter: brightness(1.1);
 }
 
 .feature_card h3 {
     color: #00aaff;
     font-size: 24px;
     margin-bottom: 15px;
-    text-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+    text-shadow:
+        0 0 15px rgba(0, 170, 255, 0.5),
+        0 0 30px rgba(0, 130, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.feature_card:hover h3 {
+    text-shadow:
+        0 0 20px rgba(0, 170, 255, 0.8),
+        0 0 40px rgba(0, 130, 255, 0.5),
+        0 0 60px rgba(0, 100, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .feature_card p {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     font-size: 16px;
+    transition: color 0.3s;
+}
+
+.feature_card:hover p {
+    color: rgba(255, 255, 255, 1);
 }
 
 @media (max-width: 1024px) {
