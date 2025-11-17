@@ -22,15 +22,3 @@ modal.onclick = (event) => {
         closeModal();
     }
 };
-
-// Auto open modal after 10 seconds
-setTimeout(openModal, 10000);
-
-// Scroll trigger for modal
-let modalOpened = false;
-window.addEventListener('scroll', () => {
-    if (!modalOpened && (window.scrollY + window.innerHeight) >= document.body.scrollHeight - 1) {
-        openModal();
-        modalOpened = true;
-    }
-});
